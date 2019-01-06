@@ -13,6 +13,11 @@ public class _04_RemovingStuffFromArrayLists {
 
 		class Stuff {
 			public String type;
+
+			public boolean getString(String string) {
+				// TODO Auto-generated method stub
+				return false;
+			}
 		}
 		class Worm extends Stuff {
 			public Worm() {
@@ -35,11 +40,21 @@ public class _04_RemovingStuffFromArrayLists {
 		System.out.println(stuffIFoundInTheYard.size());
 
 		/* TODO 1: Clean out the dirt but keep the delicious worms. */
+		for(int i = 0; i < stuffIFoundInTheYard.size();i++) {
+			
+			if(stuffIFoundInTheYard.get(i).type.contains("dirt")) {
+				stuffIFoundInTheYard.remove(i);
+			}
+			
+				
+			
+			
+		}
+
+		System.out.println(stuffIFoundInTheYard.size());
 		
 		
-		
-		
-		System.out.println(stuffIFoundInTheYard.size()); // should be 2
+		 // should be 2
 
 		ArrayList<Character> truth = new ArrayList<Character>();
 		truth.add('c');
@@ -74,7 +89,13 @@ public class _04_RemovingStuffFromArrayLists {
 		truth.add('r');
 		truth.add('#');
 		/* TODO 2: Remove the hash symbols and print out the truth. */
-
+		
+		for (int i = 0; i < truth.size(); i++) {
+			if(truth.get(i).equals('#')) {
+				truth.remove(i);
+			}
+			System.out.println(truth.get(i));	
+		}
 		
 		
 	}

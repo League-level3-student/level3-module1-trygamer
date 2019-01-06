@@ -12,14 +12,23 @@ public class _05_LongChipCompetition {
 	 * the longest chip. You may not edit the Chip or Beatle classes. Make sure to
 	 * initialize The Beatles before you start your search. *
 	 **/
+	
+	
+	
 	private ArrayList<Beatle> theBeatles = new ArrayList<Beatle>();
 
 	public static void main(String[] args) {
 		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
+		lcc.initializeBeatles();
+		Beatle b = new Beatle("s");
+		
+		for(int i = 0; i< Beatles.size();i++) {
+			
+		}
 		
 	}
 	
-	private void initializeBeatles() {
+	private  void initializeBeatles() {
 		Beatle george = new Beatle("George");
 		Beatle john = new Beatle("John");
 		Beatle paul = new Beatle("Paul");
