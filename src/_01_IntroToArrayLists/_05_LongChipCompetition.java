@@ -25,24 +25,26 @@ public class _05_LongChipCompetition {
 
 			System.out.println();
 
-			longest = lcc.theBeatles.get(i).getChips().get(0).getLength();
+			//longest = lcc.theBeatles.get(i).getChips().get(0).getLength();
 
 			for (int j = 0; j < lcc.theBeatles.get(i).getChips().size(); j++) {
 
 				if (lcc.theBeatles.get(i).getChips().get(j).getLength() > longest) {
 					longest = lcc.theBeatles.get(i).getChips().get(j).getLength();
+					FinalBeatle = lcc.theBeatles.get(i).getName();
 
 				}
 
 			}
 			
-			if(longest.get(i).getChips().get(j).getLength() > longest)
-
-			// FinalBeatle = lcc.theBeatles.get(i).getName();
-			System.out.println("The longest chip of Beatle " + i + " " + longest);
+			
+			
+	
+		
+			//System.out.println("The longest chip of Beatle " + i + " " + longest);
 		}
 
-		// System.out.println("The Beatle with Longest Chip is " +FinalBeatle);
+	System.out.println("The Beatle with Longest Chip is " +FinalBeatle);
 
 	}
 
