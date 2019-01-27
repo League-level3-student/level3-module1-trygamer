@@ -1,5 +1,9 @@
 package _03_IntroToStacks;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 public class _02_TextUndoRedo {
 	/* 
 	 * Create a JFrame with a JPanel and a JLabel.
@@ -14,5 +18,19 @@ public class _02_TextUndoRedo {
 	 * 
 	 * */
 	
+	JFrame f = new JFrame();
+	JPanel p = new JPanel();
+	JLabel l = new JLabel();
+	
+	public void SetUp() {
+	f.setVisible(true);
+	f.add(p);
+	p.add(l);
+	f.addKeyListeners();
+	f.pack();
+	
+	
+	
+	}
 	
 }
