@@ -21,6 +21,7 @@ public class _02_TextUndoRedo implements KeyListener {
 	 * off the Stack and added back to the JLabel.
 	 * 
 	 * */
+	String lss;
 	
 	public static void main(String[] args) {
 		_02_TextUndoRedo tur = new _02_TextUndoRedo();
@@ -59,24 +60,39 @@ public class _02_TextUndoRedo implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+	if(e.getKeyCode()!=KeyEvent.VK_F1) {
+		
 		cr.push(e.getKeyChar());
 		for(int i= 0; i<cr.size(); i++) {
 		l.setText(l.getText()+cr.pop()+"");
 	}
-		
+		lss =l.getText();
+	}
 		if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE) {
 			
-			String lss =l.getText();
-			System.out.println(lss);
-			crd.push((char) (lss.length()-1));
+			
+			
+			crd.push(lss.charAt(lss.length()-2));
+			System.out.println(lss.charAt(lss.length()-2));
 			l.setText(lss.substring(0, lss.length()-2));
 			
+			
+			
+			
+			
 		}
-		if(e.getKeyCode()==KeyEvent.VK_ENTER) {
-			for(int i= 0; i<crd.size(); i++) {
-			l.setText(l.getText()+crd.pop()+"");
+	
+		if(e.getKeyCode()==KeyEvent.VK_F1) {
+			
+			if(!crd.empty()) {
+				System.out.println("pop");
+				l.setText(l.getText()+crd.pop());
+
 			}
+			System.out.println(lss.charAt(lss.length()-2));
+		
+				
+						
 		}
 	}
 
