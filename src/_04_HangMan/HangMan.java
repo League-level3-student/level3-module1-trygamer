@@ -47,7 +47,7 @@ public class HangMan implements KeyListener {
 		l.setText("Lives: " + lives);
 		p.add(l2);
 		f.addKeyListener(this);
-		f.pack();
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Word = Word_Storage.pop();
 
 		for (int i = 0; i < Word.length(); i++) {
@@ -61,27 +61,59 @@ public class HangMan implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println(e.getKeyChar());
-		char Key_Pressed = e.getKeyChar();
-		if (Word.contains(Key_Pressed + "")) {
-			for (int i = 0; i < Word.length(); i++) {
 
-				System.out.println(Word.indexOf(Key_Pressed));
-
-			}
-
-		}
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		System.out.println(e.getKeyChar());
+		char Key_Pressed = e.getKeyChar();
+		if (Word.contains(Key_Pressed + "")) {
+			for (int i = 0; i < Word.length(); i++) {
+				if (Word.charAt(i) == Key_Pressed) {
+					Replace_Label(i, Key_Pressed);
+				}
+			}
 
+		}
+		if (!Word.contains(Key_Pressed + "")) {
+
+			lives = lives - 1;
+
+			l.setText("Lives: " + lives);
+		}
+
+		if (lives == 0) {
+			JOptionPane.showConfirmDialog(null, "Would You Like to play again?");
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+
+	}
+
+	public void Replace_Label(int index, Character Key_Pressed) {
+
+		if (Word.length() != index) {
+			String Seperate_2 = _Converter.substring(index + 1, Word.length());
+			String Seperate_1 = _Converter.substring(0, index);
+			_Converter = Seperate_1 + Key_Pressed + Seperate_2;
+
+		} else if (index == 0) {
+			String Seperate_2 = _Converter.substring(index + 1, Word.length());
+			_Converter = Key_Pressed + Seperate_2;
+
+		} else if (index == Word.length()) {
+
+			String Seperate_1 = _Converter.substring(0, index);
+			_Converter = Seperate_1 + Key_Pressed;
+
+		}
+
+		l2.setText(_Converter);
 
 	}
 
